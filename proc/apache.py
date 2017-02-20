@@ -139,7 +139,7 @@ def find_apache_workers(exe_name='apache2'):
         raise ApacheDaemonNotRunning("Could not find Apache master process! Is it running?")
     master = candidates[0]
     for process in master.children:
-        if process.exe_path == master.exe_path:
+        if process.comm == master.comm:
             yield process
 
 
