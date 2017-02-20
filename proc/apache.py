@@ -172,7 +172,7 @@ class MaybeApacheWorker(ProcessNode):
         .. _WSGIDaemonProcess: http://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess
         """
         if self.cmdline:
-            m = re.match(r'^\(wsgi:([^)]+)', self.cmdline[0])
+            m = re.match(r'^apache-', self.cmdline[0])
             if m:
                 return m.group(1)
         return ''
